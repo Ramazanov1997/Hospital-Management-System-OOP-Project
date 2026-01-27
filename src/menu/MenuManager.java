@@ -16,7 +16,6 @@ public class MenuManager implements Menu {
             Doctor defaultDoctor = new Doctor("Dr. House", 50, "Diagnostics");
             doctors.add(defaultDoctor);
 
-            // Примеры пациентов
             patients.add(new Patient("Alice", 25, new MedicalRecord("Flu", true)));
             patients.add(new Patient("Bob", 40, new MedicalRecord("Headache", false)));
             patients.add(new Patient("Charlie", 33, new MedicalRecord("Back Pain", true)));
@@ -28,7 +27,7 @@ public class MenuManager implements Menu {
 
     @Override
     public void displayMenu() {
-        System.out.println("\n==== HOSPITAL MANAGEMENT MENU ====");
+        System.out.println("\n HOSPITAL MANAGEMENT MENU ");
         System.out.println("1. Register Patient");
         System.out.println("2. Show All Patients");
         System.out.println("3. Doctor Treats Patient");
@@ -86,7 +85,7 @@ public class MenuManager implements Menu {
         if (patients.isEmpty()) {
             System.out.println("No patients registered.");
         } else {
-            System.out.println("--- Registered Patients ---");
+            System.out.println("Registered Patients");
             patients.forEach(System.out::println);
         }
     }
@@ -127,5 +126,4 @@ public class MenuManager implements Menu {
             d.treat();
         }
     }
-
 }
