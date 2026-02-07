@@ -1,37 +1,17 @@
 package model;
 
-import exception.InvalidAgeException;
-import interfaces.Workable;
+import exceptions.InvalidAgeException;
 
-public abstract class Person implements Workable {
-    private String name;
-    private int age;
+public abstract class Person {
+    protected int id;
+    protected String name;
+    protected int age;
 
-    public Person(String name, int age) throws InvalidAgeException {
-        setName(name);
-        setAge(age);
-    }
-
-    public void setName(String name) {
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Name cannot be empty.");
-        }
-        this.name = name;
-    }
-
-    public void setAge(int age) throws InvalidAgeException {
-        if (age <= 0 || age > 120) {
-            throw new InvalidAgeException("Invalid age: " + age);
-        }
+    public void setAge(int age) {
+        if (age <= 0)
+            throw new InvalidAgeException("Age must be positive");
         this.age = age;
     }
 
-    public String getName() { return name; }
-    public int getAge() { return age; }
-
-    @Override
-    public abstract void work();
-
-    @Override
-    public abstract String toString();
+    public abstract void display();
 }
